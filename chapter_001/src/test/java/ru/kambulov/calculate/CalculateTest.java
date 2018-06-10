@@ -18,25 +18,10 @@ public class CalculateTest {
 *метод назван по принципу when...Then...
 */
 		public void whenTakeNameThenThreeEchoPlusName() {
-		/**
-		*создаётся переменная input строчного типа	
-		*/
 		String input = "Kambulov Ivan";
-		/**
-		*Ожидаемый рез-тат
-		*/
 	    String expect = "Echo, echo, echo : Kambulov Ivan"; 
-		/**
-		*Создание перменной calc Класса Calculate
-		*/
 	    Calculate calc = new Calculate();
-		/**
-		*выполнение метода echo с параметром input и запись её переменную в result
-		*/
 		String result = calc.echo(input);
-		/**
-		*Сравнение значений
-		*/
 		assertThat(result, is(expect));
 		
 		}
