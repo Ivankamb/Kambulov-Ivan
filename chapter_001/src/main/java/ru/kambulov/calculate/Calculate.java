@@ -7,8 +7,8 @@ package ru.kambulov.calculate;
  */
 public class Calculate {
 	/**
-	 Main.
-	 @param args - args.
+	 *Main.
+	 * @param args - args.
 	 */
 	public static void main(String[] args) {
 		System.out.println("Hello wonderful world!");
