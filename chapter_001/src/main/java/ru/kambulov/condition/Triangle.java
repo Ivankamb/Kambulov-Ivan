@@ -32,7 +32,7 @@ public class Triangle {
         double ac = this.a.distanceTo(this.c);
         double bc = this.b.distanceTo(this.c);
         double p = this.period(ab, ac, bc);
-        if (this.exist(ab, ac, bc) == true) {
+        if (this.exist(ab, ac, bc)) {
             rsl = Math.sqrt(p * (p - ab) * (p - ac) * (p - bc));
         }
         return rsl;
@@ -46,14 +46,15 @@ public class Triangle {
      */
     private boolean exist(double ab, double ac, double bc) {
         if (ab < ac + bc) {
-            return true;
-        }
-        if (ac < ab + bc) {
-            return true;
-        }
-        if (bc < ab + ac) {
-            return true;
+            if (ac < ab + bc) {
+                if (bc < ab + ac) {
+                    return true;
+                }
+            }
         }
         return false;
     }
+
+
+
 }
