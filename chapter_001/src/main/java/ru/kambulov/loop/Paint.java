@@ -1,4 +1,6 @@
 package ru.kambulov.loop;
+
+import java.util.function.BiPredicate;
 /**
  * @author Kambulov Ivan (mailto:kia289@mail.ru)
  * @version $Id$
@@ -11,19 +13,7 @@ public class Paint {
      * @return возвращает нарисованную в псевдографике фигуру.
      */
     public String rightTrl(int height) {
-        StringBuilder screen = new StringBuilder();
-        int weight = height;
-        for (int row = 0; row != height; row++) {
-            for (int column = 0; column != weight; column++) {
-                if (row >= column) {
-                    screen.append("^");
-                } else {
-                    screen.append(" ");
-                }
-            }
-            screen.append(System.lineSeparator());
-        }
-        return screen.toString();
+        return this.loopBy(height, height, (row, column) -> row >= column);
     }
     /**
      * Метод создаёт левую половину пирамиды.
@@ -31,19 +21,7 @@ public class Paint {
      * @return возвращает нарисованную в псевдографике фигуру.
      */
     public String leftTrl(int height) {
-        StringBuilder screen = new StringBuilder();
-        int weight = height;
-        for (int row = 0; row != height; row++) {
-            for (int column = 0; column != weight; column++) {
-                if (row >= weight - column - 1) {
-                    screen.append("^");
-                } else {
-                    screen.append(" ");
-                }
-            }
-            screen.append(System.lineSeparator());
-        }
-        return screen.toString();
+        return this.loopBy(height, height, (row, column) -> row >= height - column - 1);
     }
     /**
      * Метод создаёт пирамиду.
@@ -51,11 +29,21 @@ public class Paint {
      * @return возвращает нарисованную в псевдографике фигуру.
      */
     public String piramid(int height) {
+        return this.loopBy(height, 2 * height - 1, (row, column) -> row >= height - column - 1
+                && row + height - 1 >= column);
+    }
+    /**
+     *
+     * @param height параметр высоты.
+     * @param weight параметр ширины.
+     * @param predict новый параметр позволяющий произвести рефракторинг кода.
+     * @return возвращает метод, который значительно уменьшает кол-во кода.
+     */
+    private String loopBy(int height, int weight, BiPredicate<Integer, Integer> predict) {
         StringBuilder screen = new StringBuilder();
-        int weight = 2 * height - 1;
         for (int row = 0; row != height; row++) {
             for (int column = 0; column != weight; column++) {
-                if (row >= height - column - 1 && row + height - 1 >= column) {
+                if (predict.test(row, column)) {
                     screen.append("^");
                 } else {
                     screen.append(" ");
