@@ -15,7 +15,7 @@ public class Square {
         for (int count = 0; count < rst.length; count++) {
             int i = count + 1;
             rst[count] = i * i;
-        }
+         }
         return rst;
     }
 }
