@@ -11,11 +11,11 @@ public class Matrix {
      * @return - таблица.
      */
 
-    public int [][] multiple(int size) {
+    public int[][] multiple(int size) {
         int[][] table = new int[size][size];
         for (int line = 0; line < size; line++) {
             for (int column = 0; column < size; column++) {
-                table[line][column] = (line +1) * (column +1);
+                table[line][column] = (line + 1) * (column + 1);
             }
         }
         return table;
