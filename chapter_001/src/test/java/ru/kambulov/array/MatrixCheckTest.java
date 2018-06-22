@@ -6,7 +6,7 @@ import static org.junit.Assert.assertThat;
 /**
  * @author Kambulov Ivan (mailto:kia289@mail.ru)
  * @version $Id$
- * @since 0.2
+ * @since 0.3
  */
 public class MatrixCheckTest {
     @Test
@@ -38,6 +38,6 @@ public class MatrixCheckTest {
                 {true, false, true, false},
                 {false, false, false, true}};
         boolean result = check.mono(input);
-        assertThat(result, is(true));
+        assertThat(result, is(false));
     }
 }
