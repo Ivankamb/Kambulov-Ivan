@@ -15,9 +15,9 @@ import static org.junit.Assert.assertThat;
 
 public class Logic3TTest {
     @Test
-    public void whenHasXWinnerOption1() {
+    public void whenHasXWinnerDiagonal() {
         Figure3T[][] table = {
-                {new Figure3T(true), new Figure3T(false), new Figure3T(true)},
+                {new Figure3T(false), new Figure3T(false), new Figure3T(true)},
                 {new Figure3T(false), new Figure3T(true), new Figure3T(false)},
                 {new Figure3T(true), new Figure3T(false), new Figure3T(false)},
         };
@@ -26,9 +26,9 @@ public class Logic3TTest {
     }
 
     @Test
-    public void whenHasXWinnerOption2() {
+    public void whenHasXWinnerVertical() {
         Figure3T[][] table = {
-                {new Figure3T(false), new Figure3T(true), new Figure3T(true)},
+                {new Figure3T(false), new Figure3T(true), new Figure3T(false)},
                 {new Figure3T(false), new Figure3T(true), new Figure3T(false)},
                 {new Figure3T(false), new Figure3T(true), new Figure3T(false)},
         };
@@ -37,7 +37,7 @@ public class Logic3TTest {
     }
 
     @Test
-    public void whenHasXWinnerOption3() {
+    public void whenHasXWinnerHorizontal() {
         Figure3T[][] table = {
                 {new Figure3T(true), new Figure3T(true), new Figure3T(true)},
                 {new Figure3T(false), new Figure3T(false), new Figure3T(false)},
@@ -48,10 +48,10 @@ public class Logic3TTest {
     }
 
     @Test
-    public void whenHasOWinnerOption1() {
+    public void whenHasOWinnerDiagonal() {
         Figure3T[][] table = {
                 {new Figure3T(false), new Figure3T(true), new Figure3T(true)},
-                {new Figure3T(false), new Figure3T(false), new Figure3T(true)},
+                {new Figure3T(true), new Figure3T(false), new Figure3T(true)},
                 {new Figure3T(true), new Figure3T(true), new Figure3T(false)},
         };
         Logic3T login = new Logic3T(table);
@@ -59,21 +59,21 @@ public class Logic3TTest {
     }
 
     @Test
-    public void whenHasOWinnerOption2() {
+    public void whenHasOWinnerVertical() {
         Figure3T[][] table = {
-                {new Figure3T(true), new Figure3T(false), new Figure3T(false)},
-                {new Figure3T(false), new Figure3T(true), new Figure3T(false)},
-                {new Figure3T(false), new Figure3T(true), new Figure3T(false)},
+                {new Figure3T(), new Figure3T(), new Figure3T(false)},
+                {new Figure3T(), new Figure3T(), new Figure3T(false)},
+                {new Figure3T(), new Figure3T(), new Figure3T(false)},
         };
         Logic3T login = new Logic3T(table);
         assertThat(login.isWinnerO(), is(true));
     }
 
     @Test
-    public void whenHasOWinnerOption3() {
+    public void whenHasOWinnerHorizontal() {
         Figure3T[][] table = {
-                {new Figure3T(true), new Figure3T(true), new Figure3T(true)},
-                {new Figure3T(true), new Figure3T(true), new Figure3T(true)},
+                {new Figure3T(true), new Figure3T(), new Figure3T(true)},
+                {new Figure3T(), new Figure3T(true), new Figure3T(true)},
                 {new Figure3T(false), new Figure3T(false), new Figure3T(false)},
         };
         Logic3T login = new Logic3T(table);
@@ -83,7 +83,7 @@ public class Logic3TTest {
     @Test
     public void whenHasGap() {
         Figure3T[][] table = {
-                {new Figure3T(true), new Figure3T(true), new Figure3T()},
+                {new Figure3T(true), new Figure3T(true), new Figure3T(true)},
                 {new Figure3T(true), new Figure3T(), new Figure3T(true)},
                 {new Figure3T(), new Figure3T(true), new Figure3T(true)},
         };
