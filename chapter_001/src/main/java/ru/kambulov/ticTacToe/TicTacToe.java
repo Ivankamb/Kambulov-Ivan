@@ -115,7 +115,6 @@ public class TicTacToe extends Application {
         return panel;
     }
 
-
     @Override
     public void start(Stage stage) {
         BorderPane border = new BorderPane();

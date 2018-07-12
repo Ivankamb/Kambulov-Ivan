@@ -3,16 +3,13 @@ package ru.kambulov.TicTacToe;
 import org.junit.Test;
 import ru.kambulov.ticTacToe.Figure3T;
 import ru.kambulov.ticTacToe.Logic3T;
-
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
-
 /**
  * @author Kambulov Ivan (mailto:kia289@mail.ru)
  * @version $Id$
  * @since 0.1
  */
-
 public class Logic3TTest {
     @Test
     public void whenHasXWinnerDiagonal() {
