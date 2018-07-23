@@ -1,4 +1,4 @@
-package ru.kambulov.ticTacToe;
+package ru.kambulov.tictactoe;
 
 import javafx.scene.shape.Rectangle;
 

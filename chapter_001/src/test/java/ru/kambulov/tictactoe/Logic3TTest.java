@@ -1,8 +1,7 @@
-package ru.kambulov.TicTacToe;
+package ru.kambulov.tictactoe;
 
 import org.junit.Test;
-import ru.kambulov.ticTacToe.Figure3T;
-import ru.kambulov.ticTacToe.Logic3T;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 /**
