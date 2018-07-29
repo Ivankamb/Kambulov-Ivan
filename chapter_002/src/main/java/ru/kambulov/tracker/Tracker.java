@@ -1,101 +1,55 @@
 package ru.kambulov.tracker;
+/**
+ * @author Kambulov Ivan (mailto:kia289@mail.ru)
+ * @version 0.1
+ * @since 25.07.18
+ */
 
 import java.util.Arrays;
 import java.util.Random;
 
-/**
- * Класс для приёма и хранения заявок.
- * @author Kambulov Ivan (mailTo: kia289@mail.ru)
- * @version 0.1
- * @since 17.07.18
- */
-
 public class Tracker {
-    /**
-     * Массив для хранения заявок.
-     */
+
     private Item[] items = new Item[100];
-    /**
-     * Указатель ячейки для новой заявки.
-     */
     private int position = 0;
     private static final Random RN = new Random();
 
     /**
-     * Метод реализующий добавление заявки в хранилище.
+     * Метод добавляет заявку в трекер.
      *
-     * @param item новая заявка.
+     * @param item заявка.
+     * @return возвращает принятую заявку.
      */
     public Item add(Item item) {
         item.setId(this.generateId());
-        this.items[this.position++] = item;
+        this.items[position++] = item;
         return item;
     }
 
     /**
-     * Метод производящий замену в ячейке массива.
+     * Метод редактирует или заменяет заявку.
      *
-     * @param id   входящий идентификатор.
-     * @param item входящие данные для замены.
+     * @param id   идентификатор заявки для обработки.
+     * @param item возврат обработанной заявки.
      */
     public void replace(String id, Item item) {
-        for (int index = 0; index < position; index++) {
-            if (this.items[index] != null && this.items[index].getId().equals(id)) {
+        for (int index = 0; index != this.position; index++) {
+            if (this.items[index] != null && item.getId().equals(id)) {
                 this.items[index] = item;
-            }
-        }
-    }
-
-    /**
-     * Метод обнулящий(Null) ячейку в массиве.
-     *
-     * @param id входящий идентификатор для нужной ячейки.
-     */
-    public void delete(String id) {
-        for (int index = 0; index < position; index++) {
-            if (this.items[index] != null && this.items[index].getId().equals(id)) {
-                System.arraycopy(this.items, index + 1, this.items, index, this.items.length - 1 - index);
-                items[position--] = null;
                 break;
             }
         }
     }
 
     /**
-     * Метод просто сопирует все данные из массива в массив для выдачи.
+     * Метод поиска в теркере по ID.
      *
-     * @return возвращает пользователю массив с данными.
-     */
-    public Item[] getAll() {
-        return Arrays.copyOf(items, position);
-    }
-
-    /**
-     * Метод производит поиск по имени. И возвращает массив со всеми совпаданиями.
-     *
-     * @param key входящий параметр необходимый для поиска.
-     * @return возвращает массив с найдеными совпадениями.
-     */
-    public Item[] findByName(String key) {
-        Item[] result = new Item[position];
-        int count = 0;
-        for (int index = 0; index < position; index++) {
-            if (this.items[index].getName().equals(key)) {
-                result[count++] = this.items[index];
-            }
-        }
-        return Arrays.copyOf(result, count);
-    }
-
-    /**
-     * Метод ищет по ID.
-     *
-     * @param id входящий идентификатор.
-     * @return возвращает найденые данные или Null.
+     * @param id ID необходимый для поиска заявки.
+     * @return возврат найденной заявки.
      */
     public Item findById(String id) {
         Item result = null;
-        for (Item item : items) {
+        for (Item item : this.items) {
             if (item != null && item.getId().equals(id)) {
                 result = item;
                 break;
@@ -105,11 +59,57 @@ public class Tracker {
     }
 
     /**
-     * Метод генерирует уникальный ключ для заявки.
+     * Метод поиска по имени заявки в трекере.
      *
-     * @return уникальный ключ.
+     * @param name имя искомой заявки.
+     * @return возврат всех найденных совпадений.
      */
-    String generateId() {
+    public Item[] findByName(String name) {
+        Item[] result = new Item[this.position];
+        int count = 0;
+        for (Item item : this.items) {
+            if (item != null && item.getName().equals(name)) {
+                result[count++] = item;
+            }
+        }
+        return Arrays.copyOf(result, count);
+    }
+
+    /**
+     * Метод показывает все имеющиеся заявки.
+     *
+     * @return показывает все заявки.
+     */
+    public Item[] getAll() {
+        Item[] result = new Item[this.position];
+        for (int index = 0; index != this.position; index++) {
+            result[index] = this.items[index];
+        }
+        return result;
+    }
+
+    /**
+     * Метод удаляет заявку.
+     *
+     * @param id ID той заявки которую необходимо удалить.
+     */
+    public void delete(String id) {
+        for (int index = 0; index != position; index++) {
+            if (this.items[index].getId().equals(id)) {
+                this.items[index] = null;
+                System.arraycopy(this.items, index + 1, this.items, index, this.items.length - 1 - index);
+                this.position--;
+                break;
+            }
+        }
+    }
+
+    /**
+     * Метод генерирующий кникальный номер для заявок.
+     *
+     * @return ID
+     */
+    public String generateId() {
         return String.valueOf(System.currentTimeMillis() + RN.nextInt());
     }
 }

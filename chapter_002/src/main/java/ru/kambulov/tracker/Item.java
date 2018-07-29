@@ -1,47 +1,45 @@
 package ru.kambulov.tracker;
 
 /**
- * Клас Item содержит в себе переменные и методы для работы с заявками.
- *
- * @author Kambulov Ivan.
- * @since 18.07.2018
+ * Данный класс соержит в себе переменные и методы для работы с заявками в трекере.
+ * @author Kambulov Ivan (mailto:kia289@mail.ru)
  * @version 0.1
+ * @since 25.07.18
  */
-
 public class Item {
-    private String Id;
-    private String name;
-    private String desc;
-    private long created;
-    private String[] comments;
+    private String id;
+    protected String name;
+    protected String description;
+    private long create;
+    private String comment;
 
-    public Item(String name, String desc, long created) {
+    public Item() {
+
+    }
+
+    public Item(String name, String description, long create) {
         this.name = name;
-        this.desc = desc;
-        this.created = created;
+        this.description = description;
+        this.create = create;
+    }
+
+    public String getId() {
+        return this.id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public long getCreate() {
+        return this.create;
+    }
+
+    public String getDescription() {
+        return this.description;
     }
 
     public String getName() {
         return this.name;
-    }
-
-    public String getDesc() {
-        return this.desc;
-    }
-
-    public long getCreated() {
-        return this.created;
-    }
-
-    public String[] getComments() {
-        return this.comments;
-    }
-
-    public String getId() {
-        return this.Id;
-    }
-
-    public void setId(String id) {
-        this.Id = id;
     }
 }
