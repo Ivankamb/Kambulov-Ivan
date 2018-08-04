@@ -1,7 +1,7 @@
 package ru.kambulov.tracker;
 /**
  * @author Kambulov Ivan (mailto:kia289@mail.ru)
- * @version 0.2
+ * @version 0.3
  * @since 25.07.18
  */
 
@@ -36,6 +36,7 @@ public class Tracker {
         for (int index = 0; index != this.position; index++) {
             if (this.items[index] != null && this.items[index].getId().equals(id)) {
                 this.items[index] = item;
+                item.setId(this.generateId());
                 break;
             }
         }

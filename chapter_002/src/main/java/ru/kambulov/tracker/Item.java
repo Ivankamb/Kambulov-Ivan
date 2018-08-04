@@ -3,7 +3,7 @@ package ru.kambulov.tracker;
 /**
  * Данный класс соержит в себе переменные и методы для работы с заявками в трекере.
  * @author Kambulov Ivan (mailto:kia289@mail.ru)
- * @version 0.1
+ * @version 0.2
  * @since 25.07.18
  */
 public class Item {
@@ -15,6 +15,11 @@ public class Item {
 
     public Item() {
 
+    }
+
+    public Item(String name, String description) {
+        this.name = name;
+        this.description = description;
     }
 
     public Item(String name, String description, long create) {
@@ -41,5 +46,9 @@ public class Item {
 
     public String getName() {
         return this.name;
+    }
+
+    public String toString() {
+        return this.name + ", описание: " + this.description + ". ID " + this.id;
     }
 }
