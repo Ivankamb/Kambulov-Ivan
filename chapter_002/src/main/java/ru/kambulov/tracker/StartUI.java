@@ -2,7 +2,7 @@ package ru.kambulov.tracker;
 
 /**
  * @author Ivan Kambulov (mailto:kia289@mail.ru)
- * @version 0.1
+ * @version 0.3
  * @since 30.07.18
  */
 public class StartUI {
@@ -68,20 +68,32 @@ public class StartUI {
         String next = this.input.ask("Введите имя новой заявки: ");
         String desc = this.input.ask("Введите описание заявки: ");
         Item item = new Item(next, desc);
-        this.tracker.replace(id, item);
+        if (this.tracker.replace(id, item)) {
+            System.out.println("~~~ Замена прошла как по маслу! ~~~");
+        } else {
+            System.out.println("~~~ Заявка не найдена! ~~~");
+        }
     }
 
     private void delete() {
         System.out.println("~~~ Удаление! ~~~");
         String id = this.input.ask("Введите ID удаляемой заявки: ");
-        this.tracker.delete(id);
+        if (this.tracker.delete(id)) {
+            System.out.println("~~~ Заявка удалена! ~~~");
+        } else {
+            System.out.println("~~~ Заявка не найдена! ~~~");
+        }
     }
 
     private void findById() {
         System.out.println("~~~ Поиск по ID ~~~");
         String id = this.input.ask("Введите ID заявки: ");
         Item item = this.tracker.findById(id);
-        System.out.println(item.toString());
+        if (item != null) {
+            System.out.println(item.toString());
+        } else {
+            System.out.println("~~~ Нет совпадений! ~~~");
+        }
     }
 
     private void findByName() {

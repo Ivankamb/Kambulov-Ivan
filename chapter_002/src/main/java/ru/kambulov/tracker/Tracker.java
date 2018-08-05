@@ -1,7 +1,7 @@
 package ru.kambulov.tracker;
 /**
  * @author Kambulov Ivan (mailto:kia289@mail.ru)
- * @version 0.3
+ * @version 0.4
  * @since 25.07.18
  */
 
@@ -31,15 +31,19 @@ public class Tracker {
      *
      * @param id   идентификатор заявки для обработки.
      * @param item возврат обработанной заявки.
+     * @return результат успешности метода.
      */
-    public void replace(String id, Item item) {
+    public boolean replace(String id, Item item) {
+        boolean result = false;
         for (int index = 0; index != this.position; index++) {
             if (this.items[index] != null && this.items[index].getId().equals(id)) {
+                item.setId(this.items[index].getId());
                 this.items[index] = item;
-                item.setId(this.generateId());
+                result = true;
                 break;
             }
         }
+        return result;
     }
 
     /**
@@ -92,17 +96,21 @@ public class Tracker {
     /**
      * Метод удаляет заявку.
      *
-     * @param id ID той заявки которую необходимо удалить.
+     * @param id входящий ID удаляемой заявки.
+     * @return результат работы метода.
      */
-    public void delete(String id) {
+    public boolean delete(String id) {
+        boolean result = false;
         for (int index = 0; index != position; index++) {
             if (this.items[index].getId().equals(id)) {
                 this.items[index] = null;
                 System.arraycopy(this.items, index + 1, this.items, index, this.items.length - 1 - index);
                 this.position--;
+                result = true;
                 break;
             }
         }
+        return result;
     }
 
     /**
