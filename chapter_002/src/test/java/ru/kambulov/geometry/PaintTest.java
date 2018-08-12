@@ -24,9 +24,12 @@ public class PaintTest {
         assertThat(new String(out.toByteArray()),
                 is(
                         new StringBuilder()
-                                .append("XXXXXXX\n")
-                                .append("X     X\n")
-                                .append("X     X\n")
+                                .append("XXXXXXX")
+                                .append(System.lineSeparator())
+                                .append("X     X")
+                                .append(System.lineSeparator())
+                                .append("X     X")
+                                .append(System.lineSeparator())
                                 .append("XXXXXXX")
                                 .append(System.lineSeparator())
                                 .toString()
