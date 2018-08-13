@@ -1,6 +1,10 @@
 package ru.kambulov.geometry;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
+
+import java.util.StringJoiner;
 
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.Is.is;
@@ -10,16 +14,27 @@ import java.io.PrintStream;
 
 /**
  * @author Ivan Kambulov (mailto:kia289@mail.ru)
- * @version 0.1
+ * @version 0.2
  * @since 08.08.18
  */
 public class PaintTest {
+    private final PrintStream stdout = System.out;
+    private final ByteArrayOutputStream out = new ByteArrayOutputStream();
+
+    @Before
+    public void loadOutput() {
+        System.out.println("Execute before method");
+        System.setOut(new PrintStream(this.out));
+    }
+
+    @After
+    public void backOutput() {
+        System.setOut(this.stdout);
+        System.out.println("Execute after method");
+    }
 
     @Test
     public void whenDrawSquare() {
-        PrintStream stdout = System.out;
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(out));
         new Paint().draw(new Square());
         assertThat(new String(out.toByteArray()),
                 is(
@@ -35,6 +50,25 @@ public class PaintTest {
                                 .toString()
                 )
         );
-        System.setOut(stdout);
+    }
+
+    @Test
+    public void whenDrawTTriangle() {
+        new Paint().draw(new Triangle());
+        assertThat(
+                new String(out.toByteArray()),
+                is(
+                        new StringBuilder()
+                                .append("    X    ")
+                                .append(System.lineSeparator())
+                                .append("  XXXXX  ")
+                                .append(System.lineSeparator())
+                                .append(" XXXXXXX ")
+                                .append(System.lineSeparator())
+                                .append("XXXXXXXXX")
+                                .append(System.lineSeparator())
+                                .toString()
+                )
+        );
     }
 }
