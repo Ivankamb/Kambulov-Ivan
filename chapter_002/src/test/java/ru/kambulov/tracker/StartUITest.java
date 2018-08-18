@@ -7,7 +7,7 @@ import static org.junit.Assert.assertThat;
 
 /**
  * @author Kambulov Ivan (mailto:kia289@mail.ru)
- * @version 0.1
+ * @version 0.2
  * @since 07.08.18
  */
 public class StartUITest {
