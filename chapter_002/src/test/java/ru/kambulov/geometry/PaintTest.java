@@ -4,8 +4,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.StringJoiner;
-
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.Is.is;
 
@@ -61,9 +59,9 @@ public class PaintTest {
                         new StringBuilder()
                                 .append("    X    ")
                                 .append(System.lineSeparator())
-                                .append("  XXXXX  ")
+                                .append("  X   X  ")
                                 .append(System.lineSeparator())
-                                .append(" XXXXXXX ")
+                                .append(" X     X ")
                                 .append(System.lineSeparator())
                                 .append("XXXXXXXXX")
                                 .append(System.lineSeparator())
