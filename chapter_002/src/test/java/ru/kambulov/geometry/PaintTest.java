@@ -3,6 +3,9 @@ package ru.kambulov.geometry;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import ru.kambulov.geometry1.Paint;
+import ru.kambulov.geometry1.Square;
+import ru.kambulov.geometry1.Triangle;
 
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.Is.is;
