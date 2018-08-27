@@ -1,4 +1,4 @@
-package ru.kambulov.models;
+package ru.kambulov.tracker;
 
 /**
  * @author Kambulov Ivan (mailto:kia289@mail.ru)

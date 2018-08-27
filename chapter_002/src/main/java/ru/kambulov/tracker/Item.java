@@ -1,20 +1,19 @@
 package ru.kambulov.tracker;
 
 /**
- * Данный класс соержит в себе переменные и методы для работы с заявками в трекере.
  * @author Kambulov Ivan (mailto:kia289@mail.ru)
- * @version 0.2
- * @since 25.07.18
+ * @version 1.0
+ * @since 27.08.18
  */
+
 public class Item {
-    private String id;
-    protected String name;
-    protected String description;
-    private long create;
     private String comment;
+    private String id;
+    public String name;
+    public String description;
+    public Long create;
 
     public Item() {
-
     }
 
     public Item(String name, String description) {
@@ -22,21 +21,26 @@ public class Item {
         this.description = description;
     }
 
-    public Item(String name, String description, long create) {
+    public Item(String name, String description, String comment) {
+        this.name = name;
+        this.description = description;
+        this.comment = comment;
+    }
+
+    public Item(String name, String description, Long create) {
         this.name = name;
         this.description = description;
         this.create = create;
     }
 
-    public String getId() {
-        return this.id;
+    public Item(String name, String description, String comment, Long create) {
+        this.name = name;
+        this.description = description;
+        this.create = create;
+        this.comment = comment;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public long getCreate() {
+    public Long getCreate() {
         return this.create;
     }
 
@@ -48,7 +52,23 @@ public class Item {
         return this.name;
     }
 
+    public String getId() {
+        return this.id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getComment() {
+        return this.comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
     public String toString() {
-        return this.name + ", описание: " + this.description + ". ID " + this.id;
+        return this.name + ". Описание: " + this.description + ". ID " + this.id;
     }
 }

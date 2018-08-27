@@ -2,20 +2,20 @@ package ru.kambulov.tracker;
 
 /**
  * @author Kambulov Ivan (mailto:kia289@mail.ru)
- * @version 0.1
- * @since 07.08.18
+ * @version 1.0
+ * @since 27.08.18
  */
+
 public class StubInput implements Input {
-    private final String[] value;
-    private String[] answers;
+    private String[] value;
     private int position = 0;
 
     public StubInput(final String[] value) {
         this.value = value;
     }
 
+    @Override
     public String ask(String question) {
-        return this.value[this.position++];
-
+     return this.value[this.position++];
     }
 }

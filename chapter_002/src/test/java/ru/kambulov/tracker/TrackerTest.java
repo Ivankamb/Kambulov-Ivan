@@ -1,8 +1,6 @@
 package ru.kambulov.tracker;
 
 import org.junit.Test;
-import ru.kambulov.models.Item;
-import ru.kambulov.start.Tracker;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;

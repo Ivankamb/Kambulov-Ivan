@@ -11,9 +11,6 @@ import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
-import ru.kambulov.models.Item;
-import ru.kambulov.start.*;
-
 /**
  * @author Kambulov Ivan (mailto:kia289@mail.ru)
  * @version 1.0

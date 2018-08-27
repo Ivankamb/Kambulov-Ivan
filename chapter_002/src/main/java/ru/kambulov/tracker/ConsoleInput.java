@@ -1,12 +1,12 @@
 package ru.kambulov.tracker;
-/**
- * Данный класс использует контракт и обрабатывает входящий поток от пользователя.
- *
- * @author Ivan Kambulov (mailto:kia289@mail.ru)
- * @version 0.1
- * @since 30.07.18
- */
+
 import java.util.Scanner;
+
+/**
+ * @author Kambulov Ivan (mailto:kia289@mail.ru)
+ * @version 1.0
+ * @since 27.08.18
+ */
 
 public class ConsoleInput implements Input {
 
