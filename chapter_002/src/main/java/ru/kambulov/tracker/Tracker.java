@@ -14,12 +14,35 @@ public class Tracker {
     private int position = 0;
     private static final Random RN = new Random();
 
+    /**
+     * Метод добавляет заявку в массив и смещает указатель ячейки на 1.
+     *
+     * @param item Заявка.
+     * @return готовая заявка.
+     */
     public Item add(Item item) {
         item.setId(this.generateId());
         this.items[position++] = item;
         return item;
     }
 
+    public void edit(Item fresh) {
+        for (int index = 0; index != items.length; ++index) {
+            Item item = items[index];
+            if (item != null && item.getId().equals(fresh.getId())) {
+                items[index] = fresh;
+                break;
+            }
+        }
+    }
+
+    /**
+     * Метод редактирует готовую заявку.
+     *
+     * @param id   ID редактируемой заявки.
+     * @param item заявка.
+     * @return результат.
+     */
     public boolean replace(String id, Item item) {
         boolean result = false;
         for (int index = 0; index != this.position; index++) {
@@ -33,6 +56,12 @@ public class Tracker {
         return result;
     }
 
+    /**
+     * Метод удаляет заявку и пересобирает массив чтоб небыло пустых ячеек до последней заявки.
+     *
+     * @param id ID удаляемой заявки.
+     * @return результат удаления.
+     */
     public boolean delete(String id) {
         boolean result = false;
         for (int index = 0; index != position; index++) {
@@ -47,6 +76,11 @@ public class Tracker {
         return result;
     }
 
+    /**
+     * Метод вызывает все заявки.
+     *
+     * @return массив заявок.
+     */
     public Item[] getAll() {
         Item[] result = new Item[position];
         for (int index = 0; index != this.position; index++) {
@@ -55,6 +89,12 @@ public class Tracker {
         return result;
     }
 
+    /**
+     * Метод ищет заявки по имени.
+     *
+     * @param name Имя искомой заявки
+     * @return массив заявок которые имеют name.
+     */
     public Item[] findByName(String name) {
         Item[] result = new Item[this.position];
         int count = 0;
@@ -66,6 +106,12 @@ public class Tracker {
         return Arrays.copyOf(result, count);
     }
 
+    /**
+     * Метод ищет заявку по ID.
+     *
+     * @param id ID искомой заявки.
+     * @return заявку которую нашёл.
+     */
     public Item findById(String id) {
         Item result = null;
         for (Item item : items) {
@@ -77,6 +123,13 @@ public class Tracker {
         return result;
     }
 
+    /**
+     * Метод добавляет комментарии к заявке. Не реализован в трекере полностью.
+     *
+     * @param id      ID комментируемой заявки.
+     * @param comment Строка комментария.
+     * @return результат.
+     */
     public boolean addComment(String id, String comment) {
         boolean result = false;
         for (int index = 0; index != this.position; index++) {
@@ -89,6 +142,11 @@ public class Tracker {
         return result;
     }
 
+    /**
+     * Метод генерирует уникальный ID.
+     *
+     * @return ID
+     */
     String generateId() {
         return String.valueOf(System.currentTimeMillis() + RN.nextInt());
     }

@@ -1,5 +1,7 @@
 package ru.kambulov.tracker;
 
+import java.util.List;
+
 /**
  * @author Kambulov Ivan (mailto:kia289@mail.ru)
  * @version 1.0
@@ -12,6 +14,11 @@ public class StubInput implements Input {
 
     public StubInput(final String[] value) {
         this.value = value;
+    }
+
+    @Override
+    public int ask(String question, List<Integer> range) {
+        return 0;
     }
 
     @Override

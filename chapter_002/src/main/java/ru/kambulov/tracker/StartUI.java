@@ -1,5 +1,8 @@
 package ru.kambulov.tracker;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author Kambulov Ivan (mailto:kia289@mail.ru)
  * @version 1.0
@@ -25,26 +28,16 @@ public class StartUI {
     }
 
     public void init() {
-        boolean exit = false;
-        while (!exit) {
-            this.showMenu();
-            String answer = this.input.ask("Выберите пункт меню: ");
-            if (ADD.equals(answer)) {
-                this.createItem();
-            } else if (SHOW_ALL.equals(answer)) {
-                this.showAll();
-            } else if (REPLACE.equals(answer)) {
-                this.replace();
-            } else if (DELETE.equals(answer)) {
-                this.delete();
-            } else if (FIND_BY_ID.equals(answer)) {
-                this.findById();
-            } else if (FIND_BY_NAME.equals(answer)) {
-                this.findByName();
-            } else if (EXIT.equals(answer)) {
-                exit = true;
-            }
+        MenuTracker menu = new MenuTracker(this.input, tracker);
+        List<Integer> range = new ArrayList<>();
+        menu.fillActions();
+        for (int i = 0; i < menu.getActionLentgh(); i++) {
+            range.add(i);
         }
+        do {
+            menu.show();
+            menu.select(input.ask("select:", range));
+        } while (!"y".equals(this.input.ask("Exit?(y): ", range)));
     }
 
     private void createItem() {

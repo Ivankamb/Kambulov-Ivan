@@ -1,5 +1,6 @@
 package ru.kambulov.tracker;
 
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -11,6 +12,11 @@ import java.util.Scanner;
 public class ConsoleInput implements Input {
 
     private Scanner scanner = new Scanner(System.in);
+
+    @Override
+    public int ask(String question, List<Integer> range) {
+        return Integer.valueOf(question);
+    }
 
     public String ask(String question) {
         System.out.println(question);

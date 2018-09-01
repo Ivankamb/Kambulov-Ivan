@@ -1,5 +1,7 @@
 package ru.kambulov.tracker;
 
+import java.util.List;
+
 /**
  * @author Kambulov Ivan (mailto:kia289@mail.ru)
  * @version 1.0
@@ -7,6 +9,7 @@ package ru.kambulov.tracker;
  */
 
 public interface Input {
-    String ask(String question);
+    int ask(String question, List<Integer> range);
 
+    String ask(String question);
 }
