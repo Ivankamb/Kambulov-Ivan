@@ -5,19 +5,11 @@ import java.util.List;
 
 /**
  * @author Kambulov Ivan (mailto:kia289@mail.ru)
- * @version 1.0
+ * @version 1.1
  * @since 27.08.18
  */
 
 public class StartUI {
-
-    private static final String ADD = "0";
-    private static final String SHOW_ALL = "1";
-    private static final String REPLACE = "2";
-    private static final String DELETE = "3";
-    private static final String FIND_BY_ID = "4";
-    private static final String FIND_BY_NAME = "5";
-    private static final String EXIT = "6";
 
     private final Input input;
     private final Tracker tracker;
@@ -97,17 +89,6 @@ public class StartUI {
         for (Item item : result) {
             System.out.println(item.toString());
         }
-    }
-
-    private void showMenu() {
-        System.out.println("Меню программы.");
-        System.out.println("Добавление новой заявки: 0");
-        System.out.println("Показать все заявки: 1");
-        System.out.println("Изменить заяаку: 2");
-        System.out.println("Удалить заявку: 3");
-        System.out.println("Поиск по ID: 4");
-        System.out.println("Поиск по имени: 5");
-        System.out.println("Выход из программы: 6");
     }
 
     public static void main(String[] args) {

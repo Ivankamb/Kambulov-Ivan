@@ -219,8 +219,11 @@ public class MenuTracker {
         public void execute(Input input, Tracker tracker) {
             System.out.println("~~~~~~~ Finding item by ID! ~~~~~~~");
             String id = input.ask("Please enter the task`s ID: ");
-            tracker.findById(id);
-            System.out.println(tracker.findById(id).toString());
+            if (tracker.findById(id) != null) {
+                System.out.println(tracker.findById(id).toString());
+            } else {
+                System.out.println("ID wrong! Item not found");
+            }
 
         }
 
