@@ -55,7 +55,7 @@ public class MenuTracker {
         this.actions.add(new MenuTracker.DeleteItem(3, "Delete item"));
         this.actions.add(new FindById(4, "Find item by Id"));
         this.actions.add(new FindByName(5, "Find items by name"));
-
+        this.actions.add(new ExitProgram(6, "Exit Program"));
     }
 
     /**
@@ -88,7 +88,7 @@ public class MenuTracker {
         }
 
         public int key() {
-            return 0;
+            return key;
         }
 
         public void execute(Input input, Tracker tracker) {
@@ -103,7 +103,7 @@ public class MenuTracker {
         }
 
         public String info() {
-            return String.format("%s. %s", this.key(), "Add item");
+            return String.format("%s. %s", key, info);
         }
 
     }
@@ -118,7 +118,7 @@ public class MenuTracker {
         }
 
         public int key() {
-            return 1;
+            return key;
         }
 
         public void execute(Input input, Tracker tracker) {
@@ -128,7 +128,7 @@ public class MenuTracker {
         }
 
         public String info() {
-            return String.format("%s. %s", this.key(), "Show all items");
+            return String.format("%s. %s", key, info);
         }
 
     }
@@ -143,7 +143,7 @@ public class MenuTracker {
         }
 
         public int key() {
-            return 2;
+            return key;
         }
 
         public void execute(Input input, Tracker tracker) {
@@ -156,7 +156,7 @@ public class MenuTracker {
         }
 
         public String info() {
-            return String.format("%s. %s", this.key(), "Edit item");
+            return String.format("%s. %s", key, info);
         }
     }
 
@@ -170,7 +170,7 @@ public class MenuTracker {
         }
 
         public int key() {
-            return 3;
+            return key;
         }
 
         public void execute(Input input, Tracker tracker) {
@@ -184,7 +184,7 @@ public class MenuTracker {
         }
 
         public String info() {
-            return String.format("%s. %s", this.key(), "Delete item");
+            return String.format("%s. %s", key, info);
         }
     }
 
@@ -198,7 +198,7 @@ public class MenuTracker {
         }
 
         public int key() {
-            return 4;
+            return key;
         }
 
         public void execute(Input input, Tracker tracker) {
@@ -210,7 +210,7 @@ public class MenuTracker {
         }
 
         public String info() {
-            return String.format("%s. %s", this.key(), "Find Item by ID");
+            return String.format("%s. %s", key, info);
         }
     }
 
@@ -224,7 +224,7 @@ public class MenuTracker {
         }
 
         public int key() {
-            return 5;
+            return key;
         }
 
         public void execute(Input input, Tracker tracker) {
@@ -239,7 +239,28 @@ public class MenuTracker {
         }
 
         public String info() {
-            return String.format("%s. %s", this.key(), "Find Item by name");
+            return String.format("%s. %s", key, info);
+        }
+    }
+
+    class ExitProgram implements UserAction {
+        private int key;
+        private String info;
+
+        ExitProgram(int key, String info) {
+            this.key = key;
+            this.info = info;
+        }
+
+        public int key() {
+            return key;
+        }
+
+        public void execute(Input input, Tracker tracker) {
+        }
+
+        public String info() {
+            return String.format("%s. %s", key, info);
         }
     }
 }
