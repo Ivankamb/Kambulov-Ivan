@@ -69,6 +69,6 @@ public class Item {
     }
 
     public String toString() {
-        return this.name + ". Описание: " + this.description + ". ID " + this.id;
+        return this.id + ". " + this.name;
     }
 }

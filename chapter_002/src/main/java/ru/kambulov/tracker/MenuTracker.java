@@ -55,7 +55,7 @@ public class MenuTracker {
         this.actions.add(new MenuTracker.DeleteItem(3, "Delete item"));
         this.actions.add(new FindById(4, "Find item by Id"));
         this.actions.add(new FindByName(5, "Find items by name"));
-        this.actions.add(new ExitProgram(6, "Exit Program"));
+        this.actions.add(new ExitProgram(6, "Exit program"));
     }
 
     /**
@@ -78,6 +78,9 @@ public class MenuTracker {
         }
     }
 
+    /**
+     * Класс добавляет заявку в список.
+     */
     private class AddItem implements UserAction {
         private int key;
         private String info;
@@ -108,6 +111,9 @@ public class MenuTracker {
 
     }
 
+    /**
+     * Класс показывает все заполненые заявки.
+     */
     private static class ShowItems implements UserAction {
         private int key;
         private String info;
@@ -133,6 +139,9 @@ public class MenuTracker {
 
     }
 
+    /**
+     * Класс редактирует заявку.
+     */
     class EditItem implements UserAction {
         private int key;
         private String info;
@@ -160,6 +169,9 @@ public class MenuTracker {
         }
     }
 
+    /**
+     * Класс удаляет заявку.
+     */
     class DeleteItem implements UserAction {
         private int key;
         private String info;
@@ -188,6 +200,9 @@ public class MenuTracker {
         }
     }
 
+    /**
+     * Класс ищет заявку по ID.
+     */
     class FindById implements UserAction {
         private int key;
         private String info;
@@ -214,6 +229,9 @@ public class MenuTracker {
         }
     }
 
+    /**
+     * Класс ищет заявку по имени.
+     */
     class FindByName implements UserAction {
         private int key;
         private String info;
@@ -243,6 +261,9 @@ public class MenuTracker {
         }
     }
 
+    /**
+     * Класс заглушка чтоб был пункт меню.
+     */
     class ExitProgram implements UserAction {
         private int key;
         private String info;
