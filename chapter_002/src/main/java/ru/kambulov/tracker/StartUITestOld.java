@@ -6,7 +6,7 @@ package ru.kambulov.tracker;
  * @since 27.08.18
  */
 
-public class StartUITest {
+public class StartUITestOld {
 
     public static void main(String[] args) {
         Input input = new StubInput(new String[] {"create stub task"});

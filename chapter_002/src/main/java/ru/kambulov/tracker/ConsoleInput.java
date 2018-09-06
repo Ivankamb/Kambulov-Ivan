@@ -13,14 +13,25 @@ public class ConsoleInput implements Input {
 
     private Scanner scanner = new Scanner(System.in);
 
-    @Override
-    public int ask(String question, List<Integer> range) {
-        System.out.println(question);
-        return Integer.valueOf(scanner.nextLine());
-    }
-
     public String ask(String question) {
         System.out.println(question);
         return scanner.nextLine();
+    }
+
+    @Override
+    public int ask(String question, List<Integer> range) {
+        int key = Integer.valueOf(this.ask(question));
+        boolean exist = false;
+        for (int value : range) {
+            if (value == key) {
+                exist = true;
+                break;
+            }
+        }
+        if (exist) {
+            return key;
+        } else {
+            throw new MenuOutException("Выход за пределы меню");
+        }
     }
 }

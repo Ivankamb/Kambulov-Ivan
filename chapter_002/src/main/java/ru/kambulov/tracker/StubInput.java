@@ -17,13 +17,14 @@ public class StubInput implements Input {
     }
 
     @Override
-    public int ask(String question, List<Integer> range) {
-        System.out.println(question);
-        return Integer.valueOf(this.value[this.position++]);
+    public String ask(String question) {
+        return this.value[this.position++];
     }
 
     @Override
-    public String ask(String question) {
-     return this.value[this.position++];
+    public int ask(String question, List<Integer> range) {
+        return -1;
+        //throw new UnsupportedOperationException("Unsupported operation");
     }
+
 }
