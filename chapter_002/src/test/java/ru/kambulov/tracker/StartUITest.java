@@ -70,8 +70,6 @@ public class StartUITest {
                 is(
                         new StringBuilder()
                                 .append(menu)
-                                .append("select:")
-                                .append(System.lineSeparator())
                                 .append("~~~~~~~ Deleting item! ~~~~~~~")
                                 .append(System.lineSeparator())
                                 .append("Item delete!")
@@ -103,8 +101,6 @@ public class StartUITest {
                 is(
                         new StringBuilder()
                                 .append(menu)
-                                .append("select:")
-                                .append(System.lineSeparator())
                                 .append(item1)
                                 .append(System.lineSeparator())
                                 .append(item2)
@@ -127,8 +123,6 @@ public class StartUITest {
                 is(
                         new StringBuilder()
                                 .append(menu)
-                                .append("select:")
-                                .append(System.lineSeparator())
                                 .append("~~~~~~~ Finding item by name! ~~~~~~~")
                                 .append(System.lineSeparator())
                                 .append(item1)

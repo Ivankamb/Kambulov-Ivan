@@ -6,10 +6,9 @@ package ru.kambulov.tracker;
  * @since 27.08.18
  */
 
-public class StartUITestOld {
+public class StartUITest {
 
     public static void main(String[] args) {
         Input input = new StubInput(new String[] {"create stub task"});
-      //  new StartUI(input).init();
     }
 }

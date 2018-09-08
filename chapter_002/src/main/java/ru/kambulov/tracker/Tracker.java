@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Random;
 
 /**
+ * Класс содержит методы которые использует Tracker для выполнения задуманных операций.
  * @author Kambulov Ivan (mailto:kia289@mail.ru)
  * @version 1.0
  * @since 27.08.18

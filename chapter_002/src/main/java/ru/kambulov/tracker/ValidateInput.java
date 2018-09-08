@@ -2,7 +2,14 @@ package ru.kambulov.tracker;
 
 import java.util.List;
 
+/**
+ * Класс обрабатывает исключительные ситуации.
+ * @author Kambulov Ivan (mailto:kia289@mail.ru)
+ * @version 1.0
+ * @since 27.08.18
+ */
 public class ValidateInput extends ConsoleInput {
+
     public int ask(String question, List<Integer> range) {
         boolean invalid = true;
         int value = -1;

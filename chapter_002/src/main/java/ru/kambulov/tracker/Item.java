@@ -1,6 +1,8 @@
 package ru.kambulov.tracker;
 
 /**
+ * В классе присутствуют все необходимые конструкторы для создания заявки как объекта.
+ *
  * @author Kambulov Ivan (mailto:kia289@mail.ru)
  * @version 1.0
  * @since 27.08.18

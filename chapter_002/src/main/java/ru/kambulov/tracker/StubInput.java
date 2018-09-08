@@ -10,7 +10,7 @@ import java.util.List;
 
 public class StubInput implements Input {
     private String[] value;
-    private int position = 0;
+    private int position;
 
     public StubInput(final String[] value) {
         this.value = value;
@@ -23,8 +23,19 @@ public class StubInput implements Input {
 
     @Override
     public int ask(String question, List<Integer> range) {
-        return -1;
-        //throw new UnsupportedOperationException("Unsupported operation");
+        int key = Integer.valueOf(this.ask(question));
+        boolean exist = false;
+        for (int value : range) {
+            if (value == key) {
+                exist = true;
+                break;
+            }
+        }
+        if (exist) {
+            return key;
+        } else {
+            throw new MenuOutException("Выход за пределы меню");
+        }
     }
 
 }
