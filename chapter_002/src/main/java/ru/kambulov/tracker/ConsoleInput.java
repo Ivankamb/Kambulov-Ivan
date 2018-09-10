@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 /**
  * @author Kambulov Ivan (mailto:kia289@mail.ru)
- * @version 1.0
+ * @version 1.1
  * @since 27.08.18
  */
 
@@ -28,10 +28,9 @@ public class ConsoleInput implements Input {
                 break;
             }
         }
-        if (exist) {
-            return key;
-        } else {
+        if (!exist) {
             throw new MenuOutException("Выход за пределы меню");
         }
+        return key;
     }
 }
