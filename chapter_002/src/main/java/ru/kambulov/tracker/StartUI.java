@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Основной кдасс программы.
  * @author Kambulov Ivan (mailto:kia289@mail.ru)
  * @version 1.1
  * @since 27.08.18
@@ -33,6 +34,6 @@ public class StartUI {
     }
 
     public static void main(String[] args) {
-        new StartUI(new ValidateInput(), new Tracker()).init();
+        new StartUI(new ValidateInput(new ConsoleInput()), new Tracker()).init();
     }
 }
