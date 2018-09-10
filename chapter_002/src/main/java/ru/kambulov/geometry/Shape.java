@@ -1,4 +1,4 @@
-package ru.kambulov.geometry1;
+package ru.kambulov.geometry;
 
 /**
  * @author Ivan Kambulov (mailto:kia289@mail.ru)
