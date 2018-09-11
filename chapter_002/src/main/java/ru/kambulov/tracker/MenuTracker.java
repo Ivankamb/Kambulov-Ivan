@@ -81,19 +81,13 @@ public class MenuTracker {
     /**
      * Класс добавляет заявку в список.
      */
-    private class AddItem implements UserAction {
-        private int key;
-        private String info;
+    class AddItem extends BaseAction {
 
-        AddItem(int key, String info) {
-            this.key = key;
-            this.info = info;
+        public AddItem(int key, String name) {
+            super(key, name);
         }
 
-        public int key() {
-            return key;
-        }
-
+        @Override
         public void execute(Input input, Tracker tracker) {
             System.out.println("~~~~~~~ Adding new item! ~~~~~~~");
             String name = input.ask("Please enter the task`s name: ");
@@ -104,57 +98,35 @@ public class MenuTracker {
             System.out.println("~~~~~~~ New item with name: " + item.getName());
             System.out.println("~~~~~~~ New item with description: " + item.getDescription());
         }
-
-        public String info() {
-            return String.format("%s. %s", key, info);
-        }
-
     }
 
     /**
      * Класс показывает все заполненые заявки.
      */
-    private static class ShowItems implements UserAction {
-        private int key;
-        private String info;
+    private static class ShowItems extends BaseAction {
 
-        ShowItems(int key, String info) {
-            this.key = key;
-            this.info = info;
+        public ShowItems(int key, String name) {
+            super(key, name);
         }
 
-        public int key() {
-            return key;
-        }
-
+        @Override
         public void execute(Input input, Tracker tracker) {
             for (Item item : tracker.getAll()) {
                 System.out.println(String.format("%s. %s", item.getId(), item.getName()));
             }
         }
-
-        public String info() {
-            return String.format("%s. %s", key, info);
-        }
-
     }
 
     /**
      * Класс редактирует заявку.
      */
-    class EditItem implements UserAction {
-        private int key;
-        private String info;
+    class EditItem extends BaseAction {
 
-        EditItem(int key, String info) {
-            this.key = key;
-            this.info = info;
+        public EditItem(int key, String name) {
+            super(key, name);
         }
 
-        public int key() {
-            return key;
-        }
-
+        @Override
         public void execute(Input input, Tracker tracker) {
             String id = input.ask("Please enter the task`s ID: ");
             String name = input.ask("Please enter the task`s name: ");
@@ -163,28 +135,18 @@ public class MenuTracker {
             task.setId(id);
             tracker.edit(task);
         }
-
-        public String info() {
-            return String.format("%s. %s", key, info);
-        }
     }
 
     /**
      * Класс удаляет заявку.
      */
-    class DeleteItem implements UserAction {
-        private int key;
-        private String info;
+    class DeleteItem extends BaseAction {
 
-        DeleteItem(int key, String info) {
-            this.key = key;
-            this.info = info;
+        public DeleteItem(int key, String name) {
+            super(key, name);
         }
 
-        public int key() {
-            return key;
-        }
-
+        @Override
         public void execute(Input input, Tracker tracker) {
             System.out.println("~~~~~~~ Deleting item! ~~~~~~~");
             String id = input.ask("Please enter the task`s ID: ");
@@ -194,28 +156,18 @@ public class MenuTracker {
                 System.out.println("Item not found!");
             }
         }
-
-        public String info() {
-            return String.format("%s. %s", key, info);
-        }
     }
 
     /**
      * Класс ищет заявку по ID.
      */
-    class FindById implements UserAction {
-        private int key;
-        private String info;
+    class FindById extends BaseAction {
 
-        FindById(int key, String info) {
-            this.key = key;
-            this.info = info;
+        public FindById(int key, String name) {
+            super(key, name);
         }
 
-        public int key() {
-            return key;
-        }
-
+        @Override
         public void execute(Input input, Tracker tracker) {
             System.out.println("~~~~~~~ Finding item by ID! ~~~~~~~");
             String id = input.ask("Please enter the task`s ID: ");
@@ -224,30 +176,19 @@ public class MenuTracker {
             } else {
                 System.out.println("ID wrong! Item not found");
             }
-
-        }
-
-        public String info() {
-            return String.format("%s. %s", key, info);
         }
     }
 
     /**
      * Класс ищет заявку по имени.
      */
-    class FindByName implements UserAction {
-        private int key;
-        private String info;
+    class FindByName extends BaseAction {
 
-        FindByName(int key, String info) {
-            this.key = key;
-            this.info = info;
+        public FindByName(int key, String name) {
+            super(key, name);
         }
 
-        public int key() {
-            return key;
-        }
-
+        @Override
         public void execute(Input input, Tracker tracker) {
             System.out.println("~~~~~~~ Finding item by name! ~~~~~~~");
             String name = input.ask("Please enter the task`s name: ");
@@ -258,33 +199,19 @@ public class MenuTracker {
                 }
             }
         }
-
-        public String info() {
-            return String.format("%s. %s", key, info);
-        }
     }
 
     /**
      * Класс заглушка чтоб был пункт меню.
      */
-    class ExitProgram implements UserAction {
-        private int key;
-        private String info;
+    class ExitProgram extends BaseAction {
 
-        ExitProgram(int key, String info) {
-            this.key = key;
-            this.info = info;
+        public ExitProgram(int key, String name) {
+            super(key, name);
         }
 
-        public int key() {
-            return key;
-        }
-
+        @Override
         public void execute(Input input, Tracker tracker) {
-        }
-
-        public String info() {
-            return String.format("%s. %s", key, info);
         }
     }
 }
