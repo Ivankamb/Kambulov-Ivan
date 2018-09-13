@@ -81,7 +81,7 @@ public class MenuTracker {
     /**
      * Класс добавляет заявку в список.
      */
-    class AddItem extends BaseAction {
+    private class AddItem extends BaseAction {
 
         public AddItem(int key, String name) {
             super(key, name);
@@ -103,7 +103,7 @@ public class MenuTracker {
     /**
      * Класс показывает все заполненые заявки.
      */
-    private static class ShowItems extends BaseAction {
+    private class ShowItems extends BaseAction {
 
         public ShowItems(int key, String name) {
             super(key, name);
@@ -120,7 +120,7 @@ public class MenuTracker {
     /**
      * Класс редактирует заявку.
      */
-    class EditItem extends BaseAction {
+    private class EditItem extends BaseAction {
 
         public EditItem(int key, String name) {
             super(key, name);
@@ -140,7 +140,7 @@ public class MenuTracker {
     /**
      * Класс удаляет заявку.
      */
-    class DeleteItem extends BaseAction {
+    private class DeleteItem extends BaseAction {
 
         public DeleteItem(int key, String name) {
             super(key, name);
@@ -161,7 +161,7 @@ public class MenuTracker {
     /**
      * Класс ищет заявку по ID.
      */
-    class FindById extends BaseAction {
+    private class FindById extends BaseAction {
 
         public FindById(int key, String name) {
             super(key, name);
@@ -182,7 +182,7 @@ public class MenuTracker {
     /**
      * Класс ищет заявку по имени.
      */
-    class FindByName extends BaseAction {
+    private class FindByName extends BaseAction {
 
         public FindByName(int key, String name) {
             super(key, name);
@@ -204,7 +204,7 @@ public class MenuTracker {
     /**
      * Класс заглушка чтоб был пункт меню.
      */
-    class ExitProgram extends BaseAction {
+    private class ExitProgram extends BaseAction {
 
         public ExitProgram(int key, String name) {
             super(key, name);
