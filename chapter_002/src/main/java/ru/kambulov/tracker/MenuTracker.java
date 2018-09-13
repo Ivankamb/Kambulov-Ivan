@@ -41,21 +41,34 @@ public class MenuTracker {
      *
      * @return возвращает длинну массива.
      */
-    public int getActionLentgh() {
+    public int getActionLength() {
         return this.actions.size();
+    }
+
+    /**
+     * Метод заполняет лист пунктами меню.
+     *
+     * @return Заполненное поле пунктов в меню.
+     */
+    public List<Integer> getRange() {
+        List<Integer> range = new ArrayList<>();
+        for (int i = 0; i < this.getActionLength(); i++) {
+            range.add(i);
+        }
+        return range;
     }
 
     /**
      * Метод заполняет массив.
      */
-    public void fillActions() {
-        this.actions.add(new AddItem(0, "Add item"));
+    public void fillActions(StartUI ui) {
+        this.actions.add(this.new AddItem(0, "Add item"));
         this.actions.add(new ShowItems(1, "Show all items"));
         this.actions.add(new MenuTracker.EditItem(2, "Edit item"));
         this.actions.add(new MenuTracker.DeleteItem(3, "Delete item"));
         this.actions.add(new FindById(4, "Find item by Id"));
         this.actions.add(new FindByName(5, "Find items by name"));
-        this.actions.add(new ExitProgram(6, "Exit program"));
+        this.actions.add(new ExitProgram(6, "Exit program", ui));
     }
 
     /**
@@ -202,16 +215,19 @@ public class MenuTracker {
     }
 
     /**
-     * Класс заглушка чтоб был пункт меню.
+     * Класс завершения работы трекера.
      */
     private class ExitProgram extends BaseAction {
+        private final StartUI ui;
 
-        public ExitProgram(int key, String name) {
+        public ExitProgram(int key, String name, StartUI ui) {
             super(key, name);
+            this.ui = ui;
         }
 
         @Override
         public void execute(Input input, Tracker tracker) {
+            this.ui.stop();
         }
     }
 }

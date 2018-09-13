@@ -5,6 +5,7 @@ import java.util.List;
 
 /**
  * Основной кдасс программы.
+ *
  * @author Kambulov Ivan (mailto:kia289@mail.ru)
  * @version 1.1
  * @since 27.08.18
@@ -12,7 +13,16 @@ import java.util.List;
 
 public class StartUI {
 
+    private boolean working = true;
+
+    /**
+     * Экземпляр класса получения данных от пользователя.
+     */
     private final Input input;
+
+    /**
+     * Экземпляр класса хранения заявок.
+     */
     private final Tracker tracker;
 
     public StartUI(Input input, Tracker tracker) {
@@ -21,16 +31,17 @@ public class StartUI {
     }
 
     public void init() {
-        MenuTracker menu = new MenuTracker(this.input, tracker);
-        List<Integer> range = new ArrayList<>();
-        menu.fillActions();
-        for (int i = 0; i < menu.getActionLentgh(); i++) {
-            range.add(i);
-        }
+        MenuTracker menu = new MenuTracker(this.input, this.tracker);
+        menu.fillActions(this);
+        List<Integer> range = menu.getRange();
         do {
             menu.show();
             menu.select(input.ask("select:", range));
-        } while (!"y".equals(this.input.ask("Exit?(y): ")));
+        } while (this.working);
+    }
+
+    public void stop() {
+        this.working = false;
     }
 
     public static void main(String[] args) {

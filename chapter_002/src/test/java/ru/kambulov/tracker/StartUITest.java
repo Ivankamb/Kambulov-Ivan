@@ -43,7 +43,7 @@ public class StartUITest {
     @Test
     public void whenUserAddItemThenTrackerHasNewItemWithSameName() {
         Tracker tracker = new Tracker();
-        Input input = new StubInput(new String[]{"0", "Test item1", "Desc", "y"});
+        Input input = new StubInput(new String[]{"0", "Test item1", "Desc", "6"});
         new StartUI(input, tracker).init();
         assertThat(tracker.getAll()[0].getName(), is("Test item1"));
     }
@@ -52,7 +52,7 @@ public class StartUITest {
     public void whenUpdateThenTrackerHasUpdatedValue() {
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("Test item name1", "Desc"));
-        Input input = new StubInput(new String[]{"2", item.getId(), "Test replace name", "Заявка заменена", "y"});
+        Input input = new StubInput(new String[]{"2", item.getId(), "Test replace name", "Заявка заменена", "6"});
         new StartUI(input, tracker).init();
         assertThat(tracker.findById(item.getId()).getName(), is("Test replace name"));
     }
@@ -63,7 +63,7 @@ public class StartUITest {
         Item item1 = tracker.add(new Item("Test name1", "desc"));
         Item item2 = tracker.add(new Item("Test name2", "desc"));
         Item item3 = tracker.add(new Item("Test name3", "desc"));
-        Input input = new StubInput(new String[]{"3", item2.getId(), "y"});
+        Input input = new StubInput(new String[]{"3", item2.getId(), "6"});
         new StartUI(input, tracker).init();
         assertThat(
                 new String(out.toByteArray()),
@@ -74,6 +74,7 @@ public class StartUITest {
                                 .append(System.lineSeparator())
                                 .append("Item delete!")
                                 .append(System.lineSeparator())
+                                .append(menu)
                                 .toString()
                 )
         );
@@ -84,7 +85,7 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         Item item1 = tracker.add(new Item("Test name1", "Desc"));
         Item item2 = tracker.add(new Item("Test name2", "Desc"));
-        Input input = new StubInput(new String[]{"4", item1.getId(), "y"});
+        Input input = new StubInput(new String[]{"4", item1.getId(), "6"});
         new StartUI(input, tracker).init();
         assertThat(tracker.findById(item1.getId()).getName(), is("Test name1"));
     }
@@ -94,7 +95,7 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         Item item1 = tracker.add(new Item("Test name1", "desc"));
         Item item2 = tracker.add(new Item("Test name2", "desc"));
-        Input input = new StubInput(new String[]{"1", "y"});
+        Input input = new StubInput(new String[]{"1", "6"});
         new StartUI(input, tracker).init();
         assertThat(
                 new String(out.toByteArray()),
@@ -105,6 +106,7 @@ public class StartUITest {
                                 .append(System.lineSeparator())
                                 .append(item2)
                                 .append(System.lineSeparator())
+                                .append(menu)
                                 .toString()
                 )
         );
@@ -116,7 +118,7 @@ public class StartUITest {
         Item item1 = tracker.add(new Item("Test name1", "desc"));
         Item item2 = tracker.add(new Item("Test name2", "desc"));
         Item item3 = tracker.add(new Item("Test name1", "desc"));
-        Input input = new StubInput(new String[]{"5", item3.getName(), "y"});
+        Input input = new StubInput(new String[]{"5", item3.getName(), "6"});
         new StartUI(input, tracker).init();
         assertThat(
                 new String(out.toByteArray()),
@@ -129,6 +131,7 @@ public class StartUITest {
                                 .append(System.lineSeparator())
                                 .append(item3)
                                 .append(System.lineSeparator())
+                                .append(menu)
                                 .toString()
                 )
         );
