@@ -1,7 +1,7 @@
-package ru.job4j.chess.firuges.black;
+package ru.job4j.chess.figures.black;
 
-import ru.job4j.chess.firuges.Cell;
-import ru.job4j.chess.firuges.Figure;
+import ru.job4j.chess.figures.Cell;
+import ru.job4j.chess.figures.Figure;
 
 /**
  *
@@ -9,10 +9,10 @@ import ru.job4j.chess.firuges.Figure;
  * @version $Id$
  * @since 0.1
  */
-public class BishopBlack implements Figure {
+public class RookBlack implements Figure {
     private final Cell position;
 
-    public BishopBlack(final Cell position) {
+    public RookBlack(final Cell position) {
         this.position = position;
     }
 
@@ -28,6 +28,6 @@ public class BishopBlack implements Figure {
 
     @Override
     public Figure copy(Cell dest) {
-        return new BishopBlack(dest);
+        return new RookBlack(dest);
     }
 }
